@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Employee Profile{% endblock %}</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'images/krishan.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <h1 style="margin-top: 30px; color:white">Employee Profile</h1>
+    {% block content %}       
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th class="table_data_style">S.No</th>
+                <th class="table_data_style">Employee Name</th>
+                <th class="table_data_style">Date of Birth</th>
+                <th class="table_data_style">Email</th>
+                <th class="table_data_style">Number</th>
+                <th class="table_data_style">Gender</th>
+                <th class="table_data_style">Occupation</th>
+                <th class="table_data_style">Id Type</th>
+                <th class="table_data_style">Id Number</th>
+                <th class="table_data_style">Issuing Authority</th>
+                <th class="table_data_style">Issuing State</th>
+                <th class="table_data_style">Issuing Date</th>
+                <th class="table_data_style">Expiry Date</th>
+            </tr>
+        </thead>
+        <tbody class="table-dark">
+          {% for i in empObj %}
+          <tr>
+            <!-- <td>{{i.id}}</td> -->
+            <td>{{forloop.counter}}</td>
+            <td>{{i.EmpName}}</td>
+            <td>{{i.EmpDOB}}</td>
+            <td>{{i.EmpEmail}}</td>
+            <td>{{i.EmpMobile}}</td>
+            <td>{{i.EmpGender}}</td>
+            <td>{{i.EmpOccupation}}</td>
+            <td>{{i.EmpIDType}}</td>
+            <td>{{i.EmpIDNumber}}</td>
+            <td>{{i.EmpIssueAuthority}}</td>
+            <td>{{i.EmpIssueState}}</td>
+            <td>{{i.EmpIssuedDate}}</td>
+            <td>{{i.EmpExpiryDate}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+.table{
+    border: 1px solid #222;
+    padding: 3px;
+}
+.table_data_style{
+    border: 2px solid black;
+    padding: 4px ;
+    margin: 3px;
+    color: white;
+}

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Update {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/EmpUpdate.css' %}">
+</head>
+<body>
+    {% block content %}
+    <section class="main_container">
+        <div class="container">
+            <header>Update Employee's Profile</header>
+            <form action="/updateEmp/{{EmpDataUpdateObj.id}}" method="POST">
+                {% csrf_token %}
+                <div class="form first">
+                    <div class="details personal">
+                        <span class="title">Personal Details</span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>Full Name</label>
+                                <input type="text" name="name" placeholder="Enter Name" value="{{EmpDataUpdateObj.EmpName}}" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Date of Birth</label>
+                                <input type="date" name="dob" placeholder="Enter Date of Birth" value="{{EmpDataUpdateObj.EmpDOB}}" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Email</label>
+                                <input type="text" name="email" placeholder="Enter Email" value="{{EmpDataUpdateObj.EmpEmail}}" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Mobile Number</label>
+                                <input type="number" placeholder="Enter mobile number" value="{{EmpDataUpdateObj.EmpMobile}}" name="mobile" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Gender</label>
+                                <input type="text" placeholder="Enter Gender" value="{{EmpDataUpdateObj.EmpGender}}" name="gender" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Occupation</label>
+                                <input type="text" placeholder="Enter your ccupation" value="{{EmpDataUpdateObj.EmpOccupation}}" name="occupation" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details ID">
+                        <span class="title">Identity Details</span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>ID Type</label>
+                                <input type="text" placeholder="Enter ID type" value="{{EmpDataUpdateObj.EmpIDType}}" name="Idtype" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>ID Number</label>
+                                <input type="number" placeholder="Enter ID number" value="{{EmpDataUpdateObj.EmpIDNumber}}" name="Idnumber" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Issued Authority</label>
+                                <input type="text" placeholder="Enter issued authority" value="{{EmpDataUpdateObj.EmpIssueAuthority}}" name="IssueAuthority" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Issued State</label>
+                                <input type="text" placeholder="Enter issued state" value="{{EmpDataUpdateObj.EmpIssueState}}" name="IssuedState" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Issued Date</label>
+                                <input type="date" placeholder="Enter your issued date" value="{{EmpDataUpdateObj.EmpIssuedDate}}" name="IssuedDate" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label>Expiry Date</label>
+                                <input type="date" placeholder="Enter expiry date" value="{{EmpDataUpdateObj.EmpExpiryDate}}" name="ExpiryDate" disabled>
+                            </div>
+                        </div>
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                        <!-- <button><a href="{% url 'home' %}" style="text-decoration: none; color:white">Home</a></button> -->
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </section>
+    {% endblock%}
+</body>
+</html>
